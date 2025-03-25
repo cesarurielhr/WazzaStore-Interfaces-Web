@@ -1,0 +1,58 @@
+/* Home.css */
+
+/* 
+  Nota: Se asume que algunas variables de color 
+  (como --section-bg, --gris-claro, --azul-claro, --text-color) 
+  ya están definidas en global.css o en :root. 
+*/
+
+/* Contenedor principal en Home */
+.container {
+  padding: 20px;
+}
+
+/* Sección "nosotros" */
+.nosotros {
+  background-color: var(--section-bg);
+  /* border: 2px solid var(--gris-claro); */
+  border: none; /* O elimina la línea directamente */
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1100px;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+
+.nosotros h2 , .container h1{
+  color: var(--azul-claro);
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.nosotros p,.container p{
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Contenedor para la imagen (permite mayor ancho y centrado) */
+.nosotros .image-container {
+  margin: 20px auto 0;   /* Espacio superior y centrado horizontal */
+  max-width: 1000px; 
+  height: auto;          /* Ajusta el ancho máximo según lo grande que la quieras */
+  overflow: hidden;      /* Evita desbordes si la imagen fuera más grande */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+/* Imagen responsiva y con estilo */
+.nosotros .image-container img {
+  display: block;
+  width: 100%;    /* Se adapta al ancho del contenedor */
+  height: auto;   /* Mantiene proporción */
+  
+  
+}

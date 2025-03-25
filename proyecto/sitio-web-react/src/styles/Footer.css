@@ -1,0 +1,151 @@
+/* Footer.css */
+
+/* Paleta de colores basada en un estilo turquesa */
+:root {
+  --teal-base: #0093af;   /* Turquesa principal */
+  --teal-hover: #00afc4;  /* Turquesa más claro */
+  --red-accent: #eb1c24;  /* Rojo de acento */
+  --white: #ffffff;
+  --gray-dark: #444444;
+  --gray-light: #e9ecef;
+}
+
+/* Contenedor principal del footer */
+.footer {
+  background-color: var(--teal-base);
+  color: var(--white);
+  padding: 30px 20px;
+  margin-top: 50px;
+}
+
+/* Contenido interno del footer */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+/* Bloque de marca */
+.footer-brand {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.footer-brand h2 {
+  /* color: var(--teal-hover); */
+  color: var(--white); /* <<-- Para que sea blanco */
+  margin-bottom: 5px;
+}
+
+.footer-brand p {
+  margin: 0;
+}
+
+/* Bloque de enlaces útiles */
+.footer-links {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.footer-links h3 {
+  /* color: var(--teal-hover); */
+  color: var(--white); /* <<-- Blanco */
+  margin-bottom: 5px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 5px 0;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--red-accent);
+}
+
+/* Bloque de redes sociales */
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.footer-social h3 {
+  /* color: var(--teal-hover); */
+  color: var(--white); /* <<-- Blanco */
+  margin-bottom: 5px;
+}
+
+.footer-social ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social li a img {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.footer-social li a img:hover {
+  filter: none; /* Vuelve a color al hacer hover */
+}
+
+/* Bloque para el enlace de administración */
+.footer-admin {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.footer-admin .admin-link {
+  color: var(--white);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-admin .admin-link:hover {
+  color: var(--red-accent);
+}
+
+/* Línea inferior del footer */
+.footer-bottom {
+  margin-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive: acomodar bloques en pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-brand,
+  .footer-links,
+  .footer-social,
+  .footer-admin {
+    text-align: center;
+  }
+}

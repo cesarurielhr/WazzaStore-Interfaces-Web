@@ -1,0 +1,81 @@
+/* admin.css */
+
+/* Eliminamos la altura completa y solo dejamos un padding vertical 
+   para centrar el formulario de manera más compacta */
+   .admin-login-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0; /* Ajusta según quieras más o menos espacio vertical */
+  }
+  
+  /* Contenedor principal, más estrecho */
+  .admin-login-container {
+    width: 100%;
+    max-width: 350px; /* Reduce el ancho máximo si quieres aún más compacto */
+    margin: 0 20px;
+  }
+  
+  /* Caja de login (card) con menos padding */
+  .login-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px; /* Antes era 40px 30px, ahora más reducido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  /* Título */
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: #2980b9; /* o el color que prefieras */
+    font-size: 1.5em; /* Ajusta el tamaño de fuente si deseas */
+  }
+  
+  /* Agrupación de inputs */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  /* Inputs */
+  .login-box input {
+    width: 100%;
+    padding: 10px 12px; /* Un poco menos de padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Ajusta si quieres más pequeño */
+    box-sizing: border-box;
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    color: #e74c3c;
+    margin-top: 10px;
+  }
+  
+  /* Botón con gradiente */
+  .btn-gradient {
+    background: linear-gradient(to right, #2980b9, #1f6091);
+    color: #fff;
+    border: none;
+    padding: 10px 15px; /* Menos padding que antes */
+    border-radius: 4px;
+    font-size: 14px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #1f6091, #2980b9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-gradient:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.3);
+  }
+  
