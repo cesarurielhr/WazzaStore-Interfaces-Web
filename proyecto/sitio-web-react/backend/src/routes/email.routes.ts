@@ -16,31 +16,36 @@ const asyncHandler = (
 
 router.post(
   "/send-email",
-  upload.single("pdf"),
+  upload.fields([
+    { name: "pdf1", maxCount: 1 },
+    { name: "pdf2", maxCount: 1 }
+  ]),
   asyncHandler(async (req: Request, res: Response) => {
     try {
-      // Valores fijos: usamos el correo predefinido y otros datos fijos
-      const fixedEmail = process.env.FIXED_EMAIL || "admin@example.com";
-      const subject = "Información de dispositivo y PDF adjunto";
-      let text = "Se adjunta el archivo PDF.\n\n";
+      // Obtener la fecha actual
+      const currentDate = new Date().toLocaleDateString();
 
-      // Agregar información del dispositivo, si existe
+      let deviceInfoText = "";
+      let subject = `Archivos para solicitar crédito por el teléfono - ${currentDate}`;
       if (req.body.deviceInfo) {
         try {
           const device = JSON.parse(req.body.deviceInfo);
-          text += `Información del dispositivo:\n`;
-          text += `Marca: ${device.brand}\n`;
-          text += `Modelo: ${device.model}\n`;
-          text += `Precio: ${device.price}\n`;
-          text += `Año de lanzamiento: ${device.releaseYear}\n`;
-          if (device.color) text += `Color: ${device.color}\n`;
-          if (device.size) text += `Tamaño: ${device.size}\n`;
-          if (device.memory) text += `Memoria: ${device.memory}\n`;
-          if (device.cameras) text += `Cámaras: ${device.cameras}\n`;
+          deviceInfoText += `Información del dispositivo:\n`;
+          deviceInfoText += `Marca: ${device.brand}\n`;
+          deviceInfoText += `Modelo: ${device.model}\n`;
+          deviceInfoText += `Precio: ${device.price}\n`;
+          deviceInfoText += `Año de lanzamiento: ${device.releaseYear}\n`;
+          if (device.color) deviceInfoText += `Color: ${device.color}\n`;
+          if (device.size) deviceInfoText += `Tamaño: ${device.size}\n`;
+          if (device.memory) deviceInfoText += `Memoria: ${device.memory}\n`;
+          if (device.cameras) deviceInfoText += `Cámaras: ${device.cameras}\n`;
+          subject = `Archivos para solicitar crédito por el teléfono: ${device.brand} ${device.model} - ${currentDate}`;
         } catch (e) {
           console.error("Error al parsear deviceInfo:", e);
         }
       }
+
+      const fixedEmail = process.env.FIXED_EMAIL || "admin@example.com";
 
       const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -54,16 +59,27 @@ router.post(
         from: process.env.EMAIL_USER,
         to: fixedEmail,
         subject,
-        text
+        text: deviceInfoText || "Se adjunta el archivo PDF.\n\n"
       };
 
-      if (req.file) {
-        mailOptions.attachments = [
-          {
-            filename: req.file.originalname,
-            content: req.file.buffer
-          }
-        ];
+      // Preparar adjuntos
+      const attachments = [];
+      const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+
+      if (files && files.pdf1 && files.pdf1.length > 0) {
+        attachments.push({
+          filename: files.pdf1[0].originalname,
+          content: files.pdf1[0].buffer
+        });
+      }
+      if (files && files.pdf2 && files.pdf2.length > 0) {
+        attachments.push({
+          filename: files.pdf2[0].originalname,
+          content: files.pdf2[0].buffer
+        });
+      }
+      if (attachments.length > 0) {
+        mailOptions.attachments = attachments;
       }
 
       await transporter.sendMail(mailOptions);

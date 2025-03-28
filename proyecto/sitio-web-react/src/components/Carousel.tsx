@@ -14,7 +14,6 @@ const Carousel = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // Cargar las imágenes del backend
     const fetchImages = async () => {
       try {
         const response = await axios.get<CarouselImage[]>("http://localhost:5000/carousel");
@@ -26,17 +25,14 @@ const Carousel = () => {
     fetchImages();
   }, []);
 
-  // Efecto para cambiar de imagen cada 3 segundos
   useEffect(() => {
     if (!images.length) return;
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, [images]);
 
-  // Manejo de casos
   if (!images.length) {
     return <p>Cargando carousel o sin imágenes...</p>;
   }
@@ -44,7 +40,6 @@ const Carousel = () => {
   return (
     <div className="carousel">
       <img src={images[index].imageUrl} alt={images[index].caption || "Carousel"} />
-      {/* Si quieres mostrar la caption */}
       {images[index].caption && <p>{images[index].caption}</p>}
     </div>
   );

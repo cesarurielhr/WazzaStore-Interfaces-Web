@@ -1,7 +1,6 @@
 /* Navbar.css */
 
 .navbar {
-  /* Degradado sutil de turquesa oscuro a claro */
   background: linear-gradient(to right, var(--teal-base), var(--teal-hover));
   padding: 15px 5%;
   display: flex;
@@ -17,28 +16,24 @@
   color: var(--white);
   text-decoration: none;
   transition: color 0.2s ease;
-  display: flex;            /* Para poner imagen y texto en línea */
-  align-items: center;      /* Centra verticalmente */
-  gap: 10px;                /* Espacio entre imagen y texto */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-/* Ajusta el tamaño de la imagen */
+
 .logo-img {
   width: 80px;
   height: auto;
-  /* Fondo y padding para simular un recuadro */
-  background-color: var(--white); /* O cualquier color de fondo que quieras */
-  padding: 5px;                  /* Espacio interno */
-  
-  /* Borde redondeado y sombra */
+  background-color: var(--white);
+  padding: 5px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 .logo:hover {
-  color: var(--red-accent); /* Toque de color rojo al hover */
+  color: var(--red-accent);
 }
 
-/* Ícono menú (mobile) */
 .menu-icon {
   display: none;
   font-size: 28px;
@@ -51,7 +46,6 @@
   color: var(--red-accent);
 }
 
-/* Lista de menús */
 .menu {
   list-style: none;
   display: flex;
@@ -86,7 +80,7 @@
     left: 0;
     flex-direction: column;
     width: 100%;
-    background-color: var(--teal-base);
+    background: linear-gradient(to right, var(--teal-base), var(--teal-hover));
     gap: 10px;
     padding: 15px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -94,4 +88,25 @@
   .menu.open {
     display: flex;
   }
+}
+
+.logout-btn {
+  background-color: #c0392b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e74c3c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.3);
 }

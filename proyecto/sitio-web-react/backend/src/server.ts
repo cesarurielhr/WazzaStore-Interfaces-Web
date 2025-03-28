@@ -1,43 +1,54 @@
-import express from "express";
-import mongoose from "mongoose";
+// src/server.ts
+import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import phonesRoutes from "./routes/phones.routes";
-import carouselRoutes from "./routes/carousel.routes";
-import brandRoutes from "./routes/brand.routes";
-import companyRoutes from "./routes/company.routes";
+import mongoose from "mongoose";
+
+// Importa las rutas (asegúrate de que los archivos existan en las rutas indicadas)
+import emailRoutes from "./routes/email.routes";
 import storeLocationRoutes from "./routes/storeLocation.routes";
-import emailRoutes from "./routes/email.routes"; // Ajusta la ruta según tu estructura
-
-
-
-
+import phoneRoutes from "./routes/phones.routes";
+import brandRoutes from "./routes/brand.routes";
+import carouselRoutes from "./routes/carousel.routes";
+import companyRoutes from "./routes/company.routes";
+import adminRoutes from "./routes/admin.routes";
 
 dotenv.config();
 
-const app = express();
+const app: Application = express();
 
+// Middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// Conectar a MongoDB
-mongoose
-  .connect(process.env.MONGO_URI as string)
-  .then(() => console.log("MongoDB conectado"))
-  .catch((err) => console.error(err));
+// Registro de rutas
+app.use("/email", emailRoutes);
+app.use("/store-location", storeLocationRoutes);
+app.use("/phones", phoneRoutes);
+app.use("/brand", brandRoutes);
+app.use("/carousel", carouselRoutes);
+app.use("/company", companyRoutes);
+app.use("/admin", adminRoutes);
 
-// Ruta de prueba
-app.get("/", (req, res) => {
-  res.send("API funcionando correctamente");
+// Middleware para manejo de errores
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error("Error:", err);
+  res.status(err.status || 500).json({ error: err.message || "Error interno del servidor" });
 });
 
-// Rutas para las todas las colecciones
-app.use("/phones", phonesRoutes);
-app.use("/carousel", carouselRoutes);
-app.use("/brand", brandRoutes);
-app.use("/company", companyRoutes);
-app.use("/store-location", storeLocationRoutes);
-app.use("/email", emailRoutes);
-
+// Conexión a la base de datos y arranque del servidor
+const MONGO_URI = process.env.MONGO_URI || "";
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));
+
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log("Conectado a MongoDB");
+    app.listen(PORT, () => {
+      console.log(`Servidor corriendo en el puerto ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error conectando a MongoDB:", error);
+  });

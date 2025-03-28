@@ -26,7 +26,6 @@ const TestImage: React.FC = () => {
         setLoading(false);
       }
     };
-
     fetchCompany();
   }, []);
 

@@ -22,4 +22,25 @@ router.get(
   })
 );
 
+// Ruta para actualizar el logo (marca)
+router.put(
+  "/",
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const { logoUrl } = req.body;
+    if (!logoUrl) {
+      res.status(400).json({ error: "Falta logoUrl" });
+      return;
+    }
+    // Se asume que existe un único documento para la marca.
+    let brand = await Brand.findOneAndUpdate(
+      {},
+      { logoUrl },
+      { new: true, runValidators: true }
+    );
+    if (!brand) {
+      brand = await Brand.create({ logoUrl });
+    }
+    res.json(brand);
+  })
+);
 export default router;

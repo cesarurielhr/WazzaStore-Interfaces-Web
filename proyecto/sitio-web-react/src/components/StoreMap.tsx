@@ -1,4 +1,4 @@
-// StoreMap.tsx (o el componente que maneja la ubicación)
+// src/components/StoreMap.tsx
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -40,7 +40,6 @@ const StoreMap: React.FC = () => {
         setLoading(false);
       }
     };
-
     fetchLocation();
   }, []);
 
@@ -50,7 +49,6 @@ const StoreMap: React.FC = () => {
 
   const position: [number, number] = [location.latitude, location.longitude];
 
-  // Función para abrir Google Maps con lat y lng
   const handleOpenMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps?q=${location.latitude},${location.longitude}`;
     window.open(googleMapsUrl, "_blank");
@@ -58,16 +56,8 @@ const StoreMap: React.FC = () => {
 
   return (
     <div style={{ height: "400px", width: "100%", margin: "0 auto" }}>
-      <MapContainer
-        center={position}
-        zoom={13}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+      <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
+        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={position}>
           <Popup>
             {location.address}

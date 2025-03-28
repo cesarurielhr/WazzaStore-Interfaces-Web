@@ -1,22 +1,29 @@
+// src/pages/admimlog.tsx
 import React, { useState } from "react";
+import axios from "axios";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/adminlog.css";
 
 const AdminLogin: React.FC = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulación de validación de credenciales
-    if (userId === "12345" && password === "123") {
-      alert("Login exitoso (simulado)");
-      // Limpiar campos y error
-      setUserId("");
-      setPassword("");
-      setError("");
-    } else {
-      setError("Credenciales incorrectas");
+    try {
+      const response = await axios.post("http://localhost:5000/admin/login", { userId, password });
+      // Aquí espera que el backend retorne { success: true } o el token.
+      if (response.data.success || response.data.token) {
+        login();
+        setError("");
+      } else {
+        setError("Credenciales incorrectas o usuario no encontrado");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setError("Error de servidor o de red");
     }
   };
 

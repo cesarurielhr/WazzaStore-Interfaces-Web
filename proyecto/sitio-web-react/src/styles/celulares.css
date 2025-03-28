@@ -19,6 +19,50 @@
   margin-bottom: 20px;
 }
 
+/* Filtros y buscador */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border: 1px solid #2980b9;
+}
+
+/* Botón Agregar Dispositivo */
+.btn-add-device {
+  background: linear-gradient(to right, #2980b9, #1f6091);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 16px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-add-device:hover {
+  background: linear-gradient(to right, #1f6091, #2980b9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Grid de teléfonos */
 .phones-grid {
   display: grid;
@@ -62,38 +106,18 @@
   margin-bottom: 10px;
 }
 
-/* Botones estilizados con gradiente */
-.btn-gradient {
-  background: linear-gradient(to right, #2980b9, #1f6091);
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(to right, #1f6091, #2980b9);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-gradient:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.3);
-}
-
-/* Aplicar el estilo a los botones dentro de phone-info */
+/* Botones dentro de .phone-info */
 .phone-info button {
   background: linear-gradient(to right, #2980b9, #1f6091);
   color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  margin: 8px 5px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-size: 14px;
 }
 
 .phone-info button:hover {
@@ -104,6 +128,23 @@
 .phone-info button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.3);
+}
+
+/* Botones específicos para admin */
+.btn-delete {
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(to right, #c0392b, #e74c3c);
+}
+
+.btn-edit {
+  background: linear-gradient(to right, #f1c40f, #f39c12);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(to right, #f39c12, #f1c40f);
 }
 
 /* Modal Overlay */
@@ -126,7 +167,8 @@
   border-radius: 8px;
   padding: 20px 30px;
   width: 90%;
-  max-width: 500px;
+  max-width: 450px;
+  margin: 0 auto;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -134,6 +176,9 @@
 .modal-content h2 {
   margin-top: 0;
   color: var(--azul-base);
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  text-align: center;
 }
 
 .modal-content p {
@@ -141,9 +186,66 @@
   margin-bottom: 15px;
 }
 
+/* Formularios en modales (agrupados en form-group) */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--gris-oscuro);
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border: 1px solid #2980b9;
+}
+
+.modal-content form button[type="submit"] {
+  margin-top: 10px;
+  align-self: center;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #2980b9, #1f6091);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content form button[type="submit"]:hover {
+  background: linear-gradient(to right, #1f6091, #2980b9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Formulario para PDF */
 .pdf-form {
-  margin: 20px 0;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

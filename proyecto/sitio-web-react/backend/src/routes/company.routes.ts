@@ -22,5 +22,27 @@ router.get(
     res.json(company);
   })
 );
+// Ruta para actualizar la imagen "Nosotros"
+router.put(
+  "/",
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
+    const { imageUrl } = req.body;
+    if (!imageUrl) {
+      res.status(400).json({ error: "Falta imageUrl" });
+      return;
+    }
+    // Se asume que hay un único documento para la información de la compañía.
+    let company = await Company.findOneAndUpdate(
+      {},
+      { imageUrl },
+      { new: true, runValidators: true }
+    );
+    if (!company) {
+      company = await Company.create({ imageUrl });
+    }
+    res.json(company);
+  })
+);
+
 
 export default router;

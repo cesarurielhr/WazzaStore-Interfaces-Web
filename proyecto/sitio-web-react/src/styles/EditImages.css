@@ -1,0 +1,374 @@
+/* EditImages.css */
+
+/* Contenedor principal */
+.edit-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Títulos generales */
+  .edit-title {
+    text-align: center;
+    color: var(--azul-base);
+    margin-bottom: 20px;
+  }
+  
+  /* Mensajes */
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  
+  .loading-message {
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Sección de cada apartado */
+  .section-title {
+    color: var(--azul-base);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Editar Logo */
+  .logo-container,
+  .company-container,
+  .location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Imagenes (Logo y Nosotros) */
+  .logo-img,
+  .company-img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Formularios para actualizar logo, imagen y ubicación */
+  .logo-update-form,
+  .company-update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .logo-input,
+  .company-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  /* Botones de actualización */
+  .update-logo-btn,
+  .update-company-btn,
+  .update-location-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #2980b9, #1f6091);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .update-logo-btn:hover,
+  .update-company-btn:hover,
+  .update-location-btn:hover {
+    background: linear-gradient(to right, #1f6091, #2980b9);
+  }
+  
+  /* Divisor entre secciones */
+  .divider {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Sección: Editar Carrusel */
+  .carousel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  /* 
+    Cada ítem en el carrusel se mostrará en 3 columnas:
+      1) Imagen
+      2) URL
+      3) Botón
+  */
+  .carousel-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Imagen del carrusel */
+  .carousel-img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Texto de la URL, con ajuste para no desbordar */
+  .carousel-url {
+    word-wrap: break-word; /* o word-break: break-all; */
+    max-width: 250px;      /* Ajusta según tu preferencia */
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Botón para eliminar imagen del carrusel */
+  .btn-delete {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .btn-delete:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+  }
+  
+  /* Formulario para agregar imagen al carrusel */
+  .carousel-add-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .carousel-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  /* Botón para agregar imagen al carrusel */
+  .add-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #2980b9, #1f6091);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background: linear-gradient(to right, #1f6091, #2980b9);
+  }
+  
+  /* Ajuste responsivo para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .carousel-item {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+  
+  /* Ubicación: agrupar campos con form-group */
+  .location-container .form-group {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+  
+  .location-container .form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+  }
+  
+  .location-container .form-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    width: 100%;
+  }
+  
+  /* Estilo general para modales */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 20px 30px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .modal-content h2 {
+    color: var(--azul-base);
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.4em;
+  }
+  
+  .modal-content p {
+    color: var(--gris-oscuro);
+    margin-bottom: 15px;
+  }
+  
+  /* Formularios en modales */
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    margin-bottom: 4px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border: 1px solid #2980b9;
+  }
+  
+  .modal-content form button[type="submit"] {
+    align-self: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2980b9, #1f6091);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .modal-content form button[type="submit"]:hover {
+    background: linear-gradient(to right, #1f6091, #2980b9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Formulario para PDF */
+  .pdf-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .pdf-form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gris-oscuro);
+    margin-bottom: 10px;
+  }
+  
+  .pdf-form input[type="file"] {
+    margin-bottom: 15px;
+  }
+  
+  .pdf-form button {
+    padding: 10px 15px;
+    background: linear-gradient(to right, #2980b9, #1f6091);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pdf-form button:hover {
+    background: linear-gradient(to right, #1f6091, #2980b9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Botón para cerrar el modal */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    color: #fff;
+    font-weight: bold;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    background: linear-gradient(to right, #c0392b, #e74c3c);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+  }
+  
