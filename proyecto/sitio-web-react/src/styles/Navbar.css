@@ -1,0 +1,121 @@
+/* Navbar.css */
+
+.navbar {
+  /* Degradado sutil de turquesa oscuro a claro */
+  background: linear-gradient(to right, var(--teal-base), var(--teal-hover));
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;            /* Para poner imagen y texto en línea */
+  align-items: center;      /* Centra verticalmente */
+  gap: 10px;                /* Espacio entre imagen y texto */
+}
+/* Ajusta el tamaño de la imagen */
+.logo-img {
+  width: 80px;
+  height: auto;
+  /* Fondo y padding para simular un recuadro */
+  background-color: var(--white); /* O cualquier color de fondo que quieras */
+  padding: 5px;                  /* Espacio interno */
+  
+  /* Borde redondeado y sombra */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.logo:hover {
+  color: var(--red-accent); /* Toque de color rojo al hover */
+}
+
+/* Ícono menú (mobile) */
+
+.menu-icon{
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--white);
+  transition: color 0.2s ease;
+}
+
+.menu-icon:hover {
+  color: var(--red-accent);
+}
+
+/* Lista de menús */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  background-color: var(--teal-base);
+  color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 83px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(to right, var(--teal-base), var(--teal-hover));
+    gap: 10px;
+    padding: 15px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .menu.open {
+    display: flex;
+  }
+}
+
+
+/* Estilo para el botón de Salir en el Navbar */
+.logout-btn {
+  background-color: #c0392b; /* rojo oscuro */
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e74c3c; /* rojo más claro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.3);
+}
