@@ -27,7 +27,7 @@ const Home = () => {
         {/* Contenedor para la imagen */}
         <TestImage />
 
-        <h1>Ubicación de la Tienda</h1>
+        <h2>Ubicación de la Tienda</h2>
         <StoreMap />
 </section>
     </div>
