@@ -38,7 +38,7 @@
   display: none;
   font-size: 28px;
   cursor: pointer;
-  color: var(--white);
+  color: var(--orange);
   transition: color 0.2s ease;
 }
 
@@ -56,7 +56,7 @@
 
 .menu a {
   text-decoration: none;
-  color: var(--white);
+  color: orange;
   font-weight: 500;
   transition: background-color 0.2s ease;
   padding: 8px 10px;

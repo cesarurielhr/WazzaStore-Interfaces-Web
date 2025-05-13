@@ -9,24 +9,21 @@ const Footer: React.FC = () => {
       <div className="footer-content">
         <div className="footer-brand">
           <h2>RomaShop</h2>
-          <p>Calidad y servicio en un solo lugar.</p>
+          <p>Practicidad en movimiento.</p>
         </div>
         <div className="footer-links">
           <h3>Enlaces útiles</h3>
           <ul>
             <li>
-              <a  target="_blank" rel="noopener noreferrer">
+              <a  target="_blank" rel="noopener noreferrer"
+              href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade "  >
                 Política de Privacidad
               </a>
             </li>
             <li>
-              <a  target="_blank" rel="noopener noreferrer">
+              <a  target="_blank" rel="noopener noreferrer"
+              href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade ">
                 Términos y Condiciones
-              </a>
-            </li>
-            <li>
-              <a  target="_blank" rel="noopener noreferrer">
-                Soporte
               </a>
             </li>
           </ul>

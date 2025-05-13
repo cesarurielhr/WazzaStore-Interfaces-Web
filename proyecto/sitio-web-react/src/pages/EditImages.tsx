@@ -229,7 +229,7 @@ const EditImages: React.FC = () => {
 
       {/* Sección: Editar Logo */}
       <section className="edit-logo-section">
-        <h2 className="section-title">Editar Logo del Navbar</h2>
+        <h2 className="section-title">Editar Logo de la pagina</h2>
         {brand && (
           <div className="logo-container">
             <img src={brand.logoUrl} alt={brand.brandName || "Logo"} className="logo-img" />
@@ -252,7 +252,7 @@ const EditImages: React.FC = () => {
 
       {/* Sección: Editar Carrusel */}
       <section className="edit-carousel-section">
-        <h2 className="section-title">Editar Carrusel (Imágenes actuales: {images.length} de 5)</h2>
+        <h2 className="section-title">Editar imagenes en movimiento (Imágenes actuales: {images.length} de 5)</h2>
         <ul className="carousel-list">
           {images.map((image) => (
             <li key={image._id} className="carousel-item">

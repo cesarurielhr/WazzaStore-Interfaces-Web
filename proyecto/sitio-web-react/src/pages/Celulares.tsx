@@ -246,8 +246,7 @@ const Celulares: React.FC = () => {
 
   return (
     <div className="celulares-container">
-      <h1>Página de Celulares</h1>
-      <p>Aquí encontrarás todos los celulares en oferta.</p>
+      <h1>Equipos Celulares</h1>
 
       <div className="filters">
         <input
@@ -326,7 +325,7 @@ const Celulares: React.FC = () => {
             />
             <form className="pdf-form" onSubmit={handleSubmitPDF}>
               <div className="form-group">
-                <label>Seleccionar el PDF de su crendencial:</label>
+                <label>Seleccionar el PDF de su INE:</label>
                 <input type="file" accept=".pdf" onChange={handleFile1Change} required />
               </div>
               <div className="form-group">
@@ -341,6 +340,8 @@ const Celulares: React.FC = () => {
                     onChange={(e) => setTermsAccepted(e.target.checked)} 
                   />
                   Acepto los términos y condiciones, políticas y privacidad.
+                  <a href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade" 
+                  target="_blank" rel="noopener noreferrer">Ver Política de Privacidad</a>
                 </label>
               </div>
               <button type="submit">Enviar</button>
@@ -422,11 +423,11 @@ const Celulares: React.FC = () => {
               </div>
               <div className="form-group">
                 <label>Modelo:</label>
-                <input type="text" name="model" value={newDevice.model} onChange={handleAddChange} />
+                <input type="text" name="model" value={newDevice.model} onChange={handleAddChange} placeholder="Nombre del modelo del equipo celular" />
               </div>
               <div className="form-group">
                 <label>Precio:</label>
-                <input type="number" name="price" value={newDevice.price} onChange={handleAddChange} />
+                <input type="number" name="price" value={newDevice.price} onChange={handleAddChange} placeholder="precio del equipo celular" />
               </div>
               <div className="form-group">
                 <label>Año de lanzamiento:</label>
@@ -434,19 +435,19 @@ const Celulares: React.FC = () => {
               </div>
               <div className="form-group">
                 <label>Tamaño:</label>
-                <input type="text" name="size" value={newDevice.size} onChange={handleAddChange} />
+                <input type="text" name="size" value={newDevice.size} onChange={handleAddChange} placeholder="Tamaño de la pantalla del equipo celular"/>
               </div>
               <div className="form-group">
                 <label>Memoria:</label>
-                <input type="text" name="memory" value={newDevice.memory} onChange={handleAddChange} />
+                <input type="text" name="memory" value={newDevice.memory} onChange={handleAddChange} placeholder="Tamaño del almacenamiento del equipo celular" />
               </div>
               <div className="form-group">
                 <label>Cámaras:</label>
-                <input type="text" name="cameras" value={newDevice.cameras} onChange={handleAddChange} />
+                <input type="text" name="cameras" value={newDevice.cameras} onChange={handleAddChange} placeholder="Características de la cámaras del equipo celular" />
               </div>
               <div className="form-group">
                 <label>Link de imagen:</label>
-                <input type="text" name="imageUrl" value={newDevice.imageUrl} onChange={handleAddChange} />
+                <input type="text" name="imageUrl" value={newDevice.imageUrl} onChange={handleAddChange} placeholder="Link de la imagen del equipo celular" />
               </div>
               {newDevice.imageUrl && (
                 <img
