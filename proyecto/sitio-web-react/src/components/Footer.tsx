@@ -16,13 +16,13 @@ const Footer: React.FC = () => {
           <ul>
             <li>
               <a  target="_blank" rel="noopener noreferrer"
-              href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade "  >
+              href="https://live-upstream.payjoy.com/mx/politica-de-privacidade "  >
                 Política de Privacidad
               </a>
             </li>
             <li>
               <a  target="_blank" rel="noopener noreferrer"
-              href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade ">
+              href="https://live-upstream.payjoy.com/mx/politica-de-privacidade ">
                 Términos y Condiciones
               </a>
             </li>

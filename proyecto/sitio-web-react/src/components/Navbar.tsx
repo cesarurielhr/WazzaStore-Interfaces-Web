@@ -35,7 +35,7 @@ const Navbar = () => {
       <ul className={`menu ${menuOpen ? "open" : ""}`}>
         <li>
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            Ofertas
+            Inicio
           </Link>
         </li>
         <li>

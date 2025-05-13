@@ -56,11 +56,12 @@
 
 .menu a {
   text-decoration: none;
-  color: orange;
+  color: var(--white);
   font-weight: 500;
   transition: background-color 0.2s ease;
   padding: 8px 10px;
   border-radius: 5px;
+  font-size: 1.3rem;
 }
 
 .menu a:hover {

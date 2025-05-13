@@ -340,7 +340,7 @@ const Celulares: React.FC = () => {
                     onChange={(e) => setTermsAccepted(e.target.checked)} 
                   />
                   Acepto los términos y condiciones, políticas y privacidad.
-                  <a href="https://live-upstream.payjoy.com/mx/politica-de-privacidadehttps://live-upstream.payjoy.com/mx/politica-de-privacidade" 
+                  <a href="https://live-upstream.payjoy.com/mx/politica-de-privacidade " 
                   target="_blank" rel="noopener noreferrer">Ver Política de Privacidad</a>
                 </label>
               </div>
